@@ -110,7 +110,7 @@ GEM
     minitest (5.14.4)
     msgpack (1.4.2)
     nio4r (2.5.8)
-    nokogiri (1.12.4-x86_64-linux)
+    nokogiri (1.12.4-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.12.4-x86_64-linux)
       racc (~> 1.4)
@@ -224,6 +224,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  actiontext
   autoprefixer-rails (= 10.2.5)
   bootsnap (>= 1.4.4)
   byebug
@@ -232,12 +233,14 @@ DEPENDENCIES
   font-awesome-sass
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  loofah
   pg (~> 1.1)
   pry-byebug
   pry-rails
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4, >= 6.1.4.1)
+  rails-dom-testing
   sass-rails (>= 6)
   selenium-webdriver
   simple_form
@@ -247,9 +250,10 @@ DEPENDENCIES
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)
+  xpath
 
 RUBY VERSION
    ruby 2.7.3p183
 
 BUNDLED WITH
-   2.2.24
+   2.2.27
