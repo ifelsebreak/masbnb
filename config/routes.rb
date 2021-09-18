@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :flats do
-    resources :reservations, except: [:edit, :update]
-  end
+    resources :reservations, except: [:edit, :update, :show]
+  end 
+  get 'reservations/:id', to: 'reservations#show'
   resources :reservations, only: [:destroy]
 end

@@ -1,6 +1,4 @@
 class ReservationsController < ApplicationController
-   before_action :find_flat
-
   def index
 # TODO: flats to be filtered based on search parameters entered by user
     @reservations = Reservation.all
@@ -12,11 +10,13 @@ class ReservationsController < ApplicationController
 
   def new
     @reservation = Reservation.new
+    @flat = find_flat
   end
 
   def create
     @reservation = Reservation.new(reservation_params)
-    @reservation.flat = @reservation
+    @reservation.user_id = current_user.id
+    @reservation.flat = find_flat
     @reservation.save
     redirect_to reservation_path(@reservation)
   end
