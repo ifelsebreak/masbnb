@@ -2,6 +2,7 @@
   <div class="row row-cols-1 row-cols-md-3 g-4">
     <% @flats.each do |flat| %>
       <div class="col pt-3">
+        <%= link_to flat do %>
         <div class="card" style="width: 20rem;">
           <!--TODO link flat image-->
           <img src="https://a0.muscache.com/im/pictures/6272f4eb-5189-42db-bca2-695ab86ced8a.jpg?im_w=1200" class="card-img-top" alt="...">
@@ -10,6 +11,7 @@
             <p class="price mb-0"><%= flat.price %>€ / night</p>
           </div>
         </div>
+        <% end %>
       </div>
     <% end %>
   </div>
