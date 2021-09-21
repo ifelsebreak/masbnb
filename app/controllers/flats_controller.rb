@@ -16,19 +16,16 @@ class FlatsController < ApplicationController
     @flat = Flat.new(flat_params)
     @flat.user_id = current_user.id
     if @flat.save
-      redirect_to root_path
+      redirect_to flat_path(@flat)
     else
       render :new
     end
-    p current_user
-    p @flat
   end
 
   private
 
   def flat_params
-    # TODO permit photo
-    params.require(:flat).permit(:title, :description, :address, :capacity, :price)
+    params.require(:flat).permit(:title, :description, :address, :capacity, :price, photo: [])
   end
 
 end
