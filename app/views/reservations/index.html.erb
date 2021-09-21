@@ -12,6 +12,7 @@
             <p class="price mb-0"><%= reservation.flat.price %>€ / night</p>
             <p class=""><%= reservation.begin_date %></p>
             <p class=""><%= reservation.end_date%></p>
+            <%= link_to "Delete reservation", reservation_path(reservation), method: :delete, data: { confirm: 'Are you sure you want to delete this reservation?' } %>
           </div>
         </div>
         <% end %>
