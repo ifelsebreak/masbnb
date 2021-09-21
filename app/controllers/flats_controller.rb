@@ -30,4 +30,5 @@ class FlatsController < ApplicationController
     # TODO permit photo
     params.require(:flat).permit(:title, :description, :address, :capacity, :price)
   end
+
 end
