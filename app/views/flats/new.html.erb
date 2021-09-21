@@ -1,0 +1,19 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <h3>Create a new apartment to rent</h3>
+        <%= simple_form_for @flat do |f| %>
+          <%= f.input :title, placeholder: 'Nice mountain house in Alps' %>
+          <%= f.input :description, as: :text %>
+          <%= f.input :address %>
+          <%= f.input :capacity, collection: 1..20 %>
+          <!--          TODO: implement cloudinary for pictures-->
+          <%#= f.input :photo %>
+          <%= f.input :price, as: :currency, currency: "€", label: 'Price per night' %>
+          <%= f.submit class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
