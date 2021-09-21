@@ -1,0 +1,13 @@
+<h1>New reservation</h1>
+
+<%= simple_form_for [@flat, @reservation], method: :post do |f| %>
+  <%= f.input :begin_date, order: [:month, :day, :year] %>
+  <%= f.input :end_date, order: [:month, :day, :year] %>
+  <%= f.button :submit %>
+<% end %>
+
+<form action="/flat" method="post"></form>
+
+<h2>
+  <%= link_to "See my reservations", flat_reservations_path %>
+</h2>  

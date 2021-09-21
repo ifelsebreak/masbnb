@@ -1,0 +1,26 @@
+<div class="w-25 p-3">
+  <img src="https://a0.muscache.com/im/pictures/6272f4eb-5189-42db-bca2-695ab86ced8a.jpg?im_w=1200" class="card-img-top" alt="...">
+</div>
+<h2><%= @flat.title %></h2>
+
+<h3>
+  <ul>
+    <li><%= @flat.address %></li>
+    <li><%= @flat.capacity %> people</li>
+    <li><%= @flat.description %></li>
+    <li><%= @flat.price %>€ / night</li>
+  </ul>
+</h3>
+
+<%# <% @reservation.reviews.each do |review| %> 
+  <%# <p> %>
+    <%# <%= review.content %>
+    <%# <%= review.rating %>
+  <%# </p> %>
+
+<%# <% end %>
+  
+ <%# <%= link_to "Add a review", new_rervation_review_path(@restaurant) %>
+<%= link_to "Book now", new_flat_reservation_path(@flat) %>
+<br>
+<%= link_to "Back to Flats", flats_path %>
