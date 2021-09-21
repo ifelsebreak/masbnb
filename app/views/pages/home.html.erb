@@ -1,5 +1,49 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<h2> 
-  <%= link_to "[Searchbar]", flats_path %> 
-</h2>
+<%= form_with url: "/search", :class => "row m-5 search-bar", method: :get do |form| %>
+  
+  <div class="col" id="country">
+    <%= form.label :city, "Where are you going?", :class => "form-label" %>
+    <%= form.country_select :country, { class: 'form-control', data: { attribute: "value" } }, :id => "country-list" %>
+  </div>
+
+  <div class="v-divider">
+  </div>
+
+  <div class="col" id="checkin">
+    <%= form.label :checkin, "Check-In"%>
+    <%= form.date_field :checkin, :id => "checkin" %>
+  </div>
+
+  <div class="v-divider">
+  </div>
+
+  <div class="col" id="checkout">
+    <%= form.label :checkout, "Check-Out" %>
+    <%= form.date_field :checkout, :id => "checkout" %>
+  </div>
+
+  <div class="v-divider">
+  </div>
+
+  <div class="col" id="guests">
+    <%= form.label :guests, "Guests" %>
+    <%= form.number_field :guests, in: 1..6, step: 1, :id => "guests" %>
+  </div>
+
+  <div class="v-divider">
+  </div>
+
+    <%= form.submit "Search" , :class => "col", :id => "search-btn" %>
+
+<% end %>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
