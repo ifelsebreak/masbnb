@@ -1,4 +1,4 @@
-class ReservationsController < ApplicationController
+class ReservationsController < ApplicationController 
   def index
 # TODO: flats to be filtered based on search parameters entered by user
     @reservations = Reservation.all
@@ -9,8 +9,8 @@ class ReservationsController < ApplicationController
   end
 
   def new
+    find_flat
     @reservation = Reservation.new
-    @flat = find_flat
   end
 
   def create
