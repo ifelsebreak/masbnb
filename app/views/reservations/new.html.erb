@@ -1,9 +1,11 @@
-<h1>New reservation</h1>
+<div class="container">
+  <h1>New reservation</h1>
 
-<%= simple_form_for [@flat, @reservation], method: :post do |f| %>
-  <%= f.input :begin_date, order: [:month, :day, :year] %>
-  <%= f.input :end_date, order: [:month, :day, :year] %>
-  <%= f.button :submit %>
-<% end %>
+  <%= simple_form_for [@flat, @reservation], method: :post do |f| %>
+    <%= f.input :begin_date, order: [:month, :day, :year] %>
+    <%= f.input :end_date, order: [:month, :day, :year] %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
 
-<form action="/flat" method="post"></form>
+  <form action="/flat" method="post"></form>
+</div>
