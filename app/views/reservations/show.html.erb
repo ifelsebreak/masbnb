@@ -1,6 +1,9 @@
-<h1>Reservation</h1>
-<h2><%= @reservation.flat.title %></h2>
-<p>Begin date <%= @reservation.begin_date %></p>
-<p>End date <%= @reservation.end_date %></p>
-
-
+<h1 class="ml-3 mt-2">Your reservation:</h1>
+<div class="card ml-4 mt-4" style="width: 18rem;">
+  <%=image_tag(@reservation.flat.photo[0], crop: :fill, :class => "card_img_top")%>
+  <div class="card-body">
+    <h5 class="card-title"><%= @reservation.flat.title %></h5>
+    <p>Your stay starts on <%= @reservation.begin_date %> and ends on <%= @reservation.end_date %></p>
+    <a href="#" class="btn btn-primary">Details</a>
+  </div>
+</div>
