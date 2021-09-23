@@ -1,5 +1,5 @@
 <div class="container">
-  <h3><%= @flat.title %>, <%= @flat.address %></h3>
+  <h3 class="text-center m-3"><%= @flat.title %>, <%= @flat.address %></h3>
   <% @flat.photo.each do |photo| %>
     <%= cl_image_tag photo.key, height: 400, width: 618, crop: :fill, class: "rounded mx-auto d-block" %>
   <% end %>
