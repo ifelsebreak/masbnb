@@ -2,7 +2,8 @@
 
   <div class="col" id="country">
     <%= form.label :city, "Where are you going?", :class => "form-label" %>
-    <%= form.country_select :country, { class: 'form-control', data: { attribute: "value" } }, :id => "country-list" %>
+    <%= form.country_select :country, { class: 'form-control', data: { attribute: "value" }, selected: "IT" }, :id => "country-list" %>
+    <%#= form.text_field :country, { class: 'form-control'}%>
   </div>
 
   <div class="v-divider">
