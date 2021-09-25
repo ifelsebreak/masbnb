@@ -11,7 +11,7 @@
   </div>
 
   <div class="row">
-    <% if  current_user.id != @flat.user_id %> %>
+    <% if current_user.id != @flat.user_id %>
       <%= link_to "Book now", new_flat_reservation_path(@flat), class: "btn btn-primary m-3" %>
     <% else %>
       <%= link_to "Edit Flat", edit_flat_path(@flat), class: "btn btn-primary m-3" %>
