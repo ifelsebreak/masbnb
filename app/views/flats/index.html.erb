@@ -3,10 +3,11 @@
 <div class="container">
   <div class="row row-cols-1 row-cols-md-3 g-4">
     <% @flats.each do |flat| %>
+    <% if  current_user.id == flat.user_id %>
       <div class="col pt-3">
         <%= link_to flat do %>
           <div class="card" style="width: 20rem;">
-            <%= cl_image_tag flat.photo[0].key, height: 200, width: 318, crop: :fill %>
+            <%# <%= cl_image_tag flat.photo[0].key, height: 200, width: 318, crop: :fill %> %>
             <div class="card-body d-flex justify-content-between p-3">
               <p class="card-text mb-0"><%= flat.title %></p>
               <p class="price mb-0"><%= flat.price %>€ / night</p>
@@ -14,6 +15,7 @@
           </div>
         <% end %>
       </div>
+      <% end %>
     <% end %>
   </div>
 </div>
