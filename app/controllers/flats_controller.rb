@@ -1,7 +1,12 @@
 class FlatsController < ApplicationController
   def index
-    # TODO: flats to be filtered based on search parameters entered by user
-    @flats = Flat.all
+    if flat_search_params.present?
+      country_name = country_name(flat_search_params[:country])
+      flats = Flat.search_by_country_capacity(country_name)
+      @flats = flats.find_all { |flat| flat.capacity >= flat_search_params[:guests].to_i }
+    else
+      @flats = Flat.all
+    end
   end
 
   def root
@@ -30,6 +35,15 @@ class FlatsController < ApplicationController
 
   def flat_params
     params.require(:flat).permit(:title, :description, :address, :capacity, :price, photo: [])
+  end
+
+  def flat_search_params
+    params.permit(:country, :checkin, :checkout, :guests)
+  end
+
+  def country_name(country_code)
+    country = ISO3166::Country[country_code]
+    country.name
   end
 
 end
