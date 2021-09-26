@@ -1,9 +1,14 @@
+<div class="jumbotron jumbotron-fluid hero-image d-flex align-items-center">
+  <div class="col d-flex flex-column align-items-end">
+    <h1 class="display-4 text-light">Comfort Houses</h1>
+    <%= link_to "See all houses", flats_path, class: "btn btn-primary" %>
+  </div>
+</div>
 <%= form_with url: "/flats", :class => "row m-5 search-bar", method: :get do |form| %>
 
   <div class="col" id="country">
     <%= form.label :city, "Where are you going?", :class => "form-label" %>
     <%= form.country_select :country, { class: 'form-control', data: { attribute: "value" }, selected: "IT" }, :id => "country-list" %>
-    <%#= form.text_field :country, { class: 'form-control'}%>
   </div>
 
   <div class="v-divider">
@@ -35,6 +40,11 @@
 
   <%= form.submit "Search", :class => "col", :id => "search-btn" %>
 
+<% end %>
+<%= simple_form_for :search, method: "get" do |f| %>
+  <%= f.input :starts_at, as: :string, required: false, input_html: { class: "datepicker" } %>
+  <%= f.input :ends_at, as: :string, required: false, input_html: { class: "datepicker" } %>
+  <%= f.button :submit, "Go", class: "btn btn-primary" %>
 <% end %>
 <br>
 <br>
