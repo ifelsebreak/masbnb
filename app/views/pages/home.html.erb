@@ -5,15 +5,15 @@
   </div>
 </div>
 <!--TODO: make them required-->
-<div class="bg-primary pt-3 pb-3">
+<div class="bg-secondary pt-3 pb-3">
   <div class="container">
     <%= simple_form_for :search, url: "/flats", class: "form-horizontal", method: "get" do |form| %>
       <div class="form-row align-items-center justify-content-around">
-        <%= form.input :country_code, { class: 'form-control', data: { attribute: "value" }, selected: "IT", :id => "country-list", label: "Destination" } %>
-        <%= form.input :starts_at, as: :string, required: false, input_html: { class: "datepicker form-control", id: "range_start" } %>
-        <%= form.input :ends_at, as: :string, required: false, input_html: { class: "datepicker form-control", id: "range_end" } %>
-        <%= form.input :guests, collection: 1..10, selected: 1, :id => "guests", label: "Guests", class: "form-control" %>
-        <%= form.submit "Search", :class => "btn btn-primary border" %>
+        <%= form.input :country_code, class: 'form-control bg-secondary', input_html: { class: "form-control bg-secondary text-white", id: "country-list" }, data: { attribute: "value" }, selected: "IT", label: "DESTINATION", label_html: { class: 'text-primary' } %>
+        <%= form.input :starts_at, as: :string, required: false, input_html: { class: "datepicker form-control bg-secondary text-white", id: "range_start" }, label: "STARTS AT", label_html: { class: 'text-primary' } %>
+        <%= form.input :ends_at, as: :string, required: false, input_html: { class: "datepicker form-control bg-secondary text-white", id: "range_end" }, label: "ENDS AT", label_html: { class: 'text-primary' } %>
+        <%= form.input :guests, collection: 1..10, selected: 1, :id => "guests", input_html: { class: "form-control bg-secondary text-white" }, label: "GUESTS", label_html: { class: 'text-primary' } %>
+        <%= form.submit "Search", :class => "btn btn-primary" %>
       </div>
     <% end %>
   </div>
