@@ -1,11 +1,12 @@
 <div class="container">
-  <h1>Reservations List</h1>
-  <div class="row row-cols-1 row-cols-md-3 g-4">
+  <h1 class="text-center">Reservations List</h1>
+  <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
     <% @reservations.each do |reservation| %>
       <div class="col pt-3">
         <%= link_to reservation do %>
           <div class="card" style="width: 20rem;">
             <% reservation.flat.photo.each do |photo| %>
+              <%# <img src="https://cdn.shopify.com/s/files/1/1661/5755/products/property-placeholder_1024x1024.jpg?v=1482778691" alt=""> %>
               <%= cl_image_tag photo.key, height: 200, width: 318, crop: :fill, class: "rounded mx-auto d-block" %>
             <% end %>
             <div class="card-body d-flex justify-content-between p-3">
