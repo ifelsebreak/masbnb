@@ -1,60 +1,20 @@
-<div class="jumbotron jumbotron-fluid hero-image d-flex align-items-center">
+<div class="jumbotron jumbotron-fluid hero-image d-flex align-items-center mb-0">
   <div class="col d-flex flex-column align-items-end">
     <h1 class="display-4 text-light">Comfort Houses</h1>
     <%= link_to "See all houses", flats_path, class: "btn btn-primary" %>
   </div>
 </div>
-<%= form_with url: "/flats", :class => "row m-5 search-bar", method: :get do |form| %>
-
-  <div class="col" id="country">
-    <%= form.label :city, "Where are you going?", :class => "form-label" %>
-    <%= form.country_select :country, { class: 'form-control', data: { attribute: "value" }, selected: "IT" }, :id => "country-list" %>
+<!--TODO: make them required-->
+<div class="bg-primary pt-3 pb-3">
+  <div class="container">
+    <%= simple_form_for :search, url: "/flats", class: "form-horizontal", method: "get" do |form| %>
+      <div class="form-row align-items-center justify-content-around">
+        <%= form.input :country_code, { class: 'form-control', data: { attribute: "value" }, selected: "IT", :id => "country-list", label: "Destination" } %>
+        <%= form.input :starts_at, as: :string, required: false, input_html: { class: "datepicker form-control", id: "range_start" } %>
+        <%= form.input :ends_at, as: :string, required: false, input_html: { class: "datepicker form-control", id: "range_end" } %>
+        <%= form.input :guests, collection: 1..10, selected: 1, :id => "guests", label: "Guests", class: "form-control" %>
+        <%= form.submit "Search", :class => "btn btn-primary border" %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="v-divider">
-  </div>
-
-  <div class="col" id="checkin">
-    <%= form.label :checkin, "Check-In" %>
-    <%= form.date_field :checkin, :id => "checkin" %>
-  </div>
-
-  <div class="v-divider">
-  </div>
-
-  <div class="col" id="checkout">
-    <%= form.label :checkout, "Check-Out" %>
-    <%= form.date_field :checkout, :id => "checkout" %>
-  </div>
-
-  <div class="v-divider">
-  </div>
-
-  <div class="col" id="guests">
-    <%= form.label :guests, "Guests" %>
-    <%= form.number_field :guests, in: 1..6, step: 1, :id => "guests" %>
-  </div>
-
-  <div class="v-divider">
-  </div>
-
-  <%= form.submit "Search", :class => "col", :id => "search-btn" %>
-
-<% end %>
-<%= simple_form_for :search, method: "get" do |f| %>
-  <%= f.input :starts_at, as: :string, required: false, input_html: { class: "datepicker" } %>
-  <%= f.input :ends_at, as: :string, required: false, input_html: { class: "datepicker" } %>
-  <%= f.button :submit, "Go", class: "btn btn-primary" %>
-<% end %>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+</div>
