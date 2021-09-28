@@ -3,6 +3,17 @@
 @import "config/colors";
 @import "config/bootstrap_variables";
 
+$theme-colors: (
+        "primary": #65C2BA,
+        "secondary": #CACACA,
+        "success": #015668,
+        "info": #0F81C7,
+        "warning": #0DE2EA,
+        "danger": #06648C,
+        "light": #ececec,
+        "dark": #222222
+);
+
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
@@ -13,3 +24,7 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.btn-primary {
+  border-radius: 50px;
+}
