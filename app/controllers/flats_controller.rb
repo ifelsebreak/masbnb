@@ -1,9 +1,9 @@
 class FlatsController < ApplicationController
   def index
     if flat_search_params.present?
-      country_name = country_name(flat_search_params[:country])
+      country_name = country_name(params[:search][:country_code])
       flats = Flat.search_by_country_capacity(country_name)
-      @flats = flats.find_all { |flat| flat.capacity >= flat_search_params[:guests].to_i }
+      @flats = flats.find_all { |flat| flat.capacity >= params[:search][:guests].to_i }
     else
       @flats = Flat.all
     end
@@ -54,7 +54,11 @@ class FlatsController < ApplicationController
   end
 
   def flat_search_params
-    params.permit(:country, :checkin, :checkout, :guests)
+    params.permit(:search, :commit)
+  end
+
+  def split_dates(dates)
+    dates.split.slice!(1)
   end
 
   def country_name(country_code)
