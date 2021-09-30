@@ -14,8 +14,6 @@ class FlatsController < ApplicationController
   end
 
   def show
-    # dates = split_dates(params[:search][:starts_at])
-    # TODO access hidden field
     @flat = Flat.find(params[:id])
   end
 
